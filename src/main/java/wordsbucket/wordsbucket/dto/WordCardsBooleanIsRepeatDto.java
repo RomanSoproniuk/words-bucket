@@ -1,2 +1,10 @@
-package wordsbucket.wordsbucket.dto;public class WordCardsBooleanIsRepeatDto {
+package wordsbucket.wordsbucket.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class WordCardsBooleanIsRepeatDto {
+    private String isRepeat;
 }

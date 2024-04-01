@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-public-user
+      author: rsoproniuk
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: "1"
+              - column:
+                  name: email
+                  value: "public@wordbuckets.com"
+              - column:
+                  name: name
+                  value: "public"
+              - column:
+                  name: password
+                  value: "$2a$10$2kHb43qfmSAJ6DmunhyjjO5qmEHOIP3SmFv.7Z/dg3rLB8sgyLqAa"
+              - column:
+                  name: is_deleted
+                  value: "0"

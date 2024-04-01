@@ -1,6 +1,29 @@
 databaseChangeLog:
-  - changeSet:
-      id: 0
-      author: admin
-      changes:
-        -
+  - include:
+      file: db/changelog/changes/0001-create-notes-table.yaml
+  - include:
+      file: db/changelog/changes/0002-create-users-table.yaml
+  - include:
+      file: db/changelog/changes/0003-create-word-buckets-table.yaml
+  - include:
+      file: db/changelog/changes/0004-create-word-cards-table.yaml
+  - include:
+      file: db/changelog/changes/0006-create-users-word-cards.yaml
+  - include:
+      file: db/changelog/changes/0007-create-word-buckets-word-cards-table.yaml
+  - include:
+      file: db/changelog/changes/0008-create-roles-table.yaml
+  - include:
+      file: db/changelog/changes/0009-create-users-roles-table.yaml
+  - include:
+      file: db/changelog/changes/0010-add-roles-to-roles.yaml
+  - include:
+      file: db/changelog/changes/0011-add-admin-user.yaml
+  - include:
+      file: db/changelog/changes/0012-add-public-user.yaml
+  - include:
+      file: db/changelog/changes/0013-add-popular-word-buckets-to-db.yaml
+
+
+
+

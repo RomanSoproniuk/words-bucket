@@ -1,6 +1,26 @@
 databaseChangeLog:
   - changeSet:
-      id: 0
-      author: admin
+      id: create-word-buckets-table
+      author: rsoproniuk
       changes:
-        -
+        - createTable:
+            tableName: word_buckets
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: bucket_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: users.id
+                    nullable: false

@@ -1,2 +1,13 @@
-package wordsbucket.wordsbucket.dto;public class WordCardRequestDto {
+package wordsbucket.wordsbucket.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+import wordsbucket.wordsbucket.model.Note;
+
+@Getter
+@Setter
+public class WordCardRequestDto {
+    private String frontSideCard;
+    private String backSideCard;
+    private Note note;
 }

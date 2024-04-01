@@ -1,6 +1,20 @@
 databaseChangeLog:
   - changeSet:
-      id: 0
-      author: admin
+      id: create-word-buckets-word-cards-table
+      author: rsoproniuk
       changes:
-        -
+        - createTable:
+            tableName: word_buckets_word_cards
+            columns:
+              - column:
+                  name: word_buckets_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: word_buckets.id
+                    nullable: false
+              - column:
+                  name: word_cards_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: word_cards.id
+                    nullable: false
