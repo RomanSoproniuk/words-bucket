@@ -43,6 +43,9 @@ public class WordCardController {
         return wordCardService.getAllWordCards(principal, pageable);
     }
 
+    @Operation(summary = "Get random word card for user", description = """ 
+            User can recieve random word card by id
+            """)
     @GetMapping("/get-random-word-card")
     public WordCardResponseDto getRandomWordCardFromAllCards(Principal principal) {
         return wordCardService.getRandomWordCardFromAllCards(principal);
@@ -58,18 +61,28 @@ public class WordCardController {
         return wordCardService.saveWordCard(wordCardRequestDto, principal);
     }
 
+    @Operation(summary = "Get all word where boolean repeat flag is true", description = """ 
+            If user add word to 'repear' after that user can receive all this word card
+            """)
     @GetMapping("/repeat_words")
     public List<WordCardResponseDto> getAllWordCardsWhereRepeatTrue(Principal principal,
                                                          Pageable pageable) {
         return wordCardService.getAllWordCardsWhereRepeatTrue(principal, pageable);
     }
 
+    @Operation(summary = "Get all word where boolean know flag is true", description = """ 
+            If user add word to 'know' after that user can receive all this word card
+            """)
     @GetMapping("/know_words")
     public List<WordCardResponseDto> getAllWordCardsWhereKnowTrue(Principal principal,
                                                                   Pageable pageable) {
         return wordCardService.getAllWordCardsWhereKnowTrue(principal, pageable);
     }
 
+    @Operation(summary = "User can update word card to 'repeat'"
+            + " if he dont know this word", description = """ 
+            You add boolean flag 'repeat' if you know this word
+            """)
     @PutMapping("/repeat_words/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void updateBooleanIsRepeatTrue(
@@ -79,6 +92,10 @@ public class WordCardController {
         wordCardService.updateBooleanIsRepeatTrue(wordCardsBooleanIsRepeatDto, id);
     }
 
+    @Operation(summary = "User can update word card to 'know'"
+            + " if he know this word", description = """ 
+            You add boolean flag 'know' if you know this word
+            """)
     @PutMapping("/know_words/{id}")
     public void updateBooleanIsRepeatTrue(
             @RequestBody
@@ -87,6 +104,10 @@ public class WordCardController {
         wordCardService.wordCardsBooleanIsKnowDto(wordCardsBooleanIsKnowDto, id);
     }
 
+    @Operation(summary = "User can delete word card"
+            + " if he doesn t need this word card", description = """ 
+            You can delete word card if you don t need this card you wrote it with mistakes
+            """)
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteWordCardById(@PathVariable Long id, Principal principal) {
